@@ -9,6 +9,16 @@ const bodyParser = require('body-parser');
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+    res.set({
+        'Access-Control-Allow-Origin': 'http://localhost:8000'
+    })
+    next();
+})
+app.use(require('cors')({
+    origin: 'http://localhost:8000',
+    credentials: true
+}));
 
 const dbName = "quizzy";
 mongoose.connect('mongodb://localhost/' + dbName);
