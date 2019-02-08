@@ -32,7 +32,7 @@ module.exports = {
             return err;
         });
 
-    },
+    }
 
     // edit: function(data) {
     //     let id = data._id;

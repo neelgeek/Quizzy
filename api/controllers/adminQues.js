@@ -18,22 +18,6 @@ module.exports.controllerFunction = function(app) {
     });
 
     // Returns all the Questions in the Db.
-    router.get('/view/questions', (req, res) => {
-        quesModel.view().then(response => {
-            res.status(200).json(response);
-        }).catch(err => {
-            res.status(500).json(err);
-        })
-    });
-
-    // Returns Random Questions from the database in random manner
-    router.get('/view/randomQ', (req, res) => {
-        quesModel.Randomview().then(response => {
-            res.status(200).json(response);
-        }).catch(err => {
-            res.status(500).json(err);
-        })
-    });
 
     // Deletes the question with the id specified in the Query parameter
     router.delete('/delete/question/', (req, res) => {
@@ -48,6 +32,14 @@ module.exports.controllerFunction = function(app) {
     router.patch('/update/question', (req, res) => {
         quesModel.edit(req.body).then(updated => {
             res.status(200).json(updated);
+        }).catch(err => {
+            res.status(500).json(err);
+        })
+    });
+
+    router.get('/view/questionlist', (req, res) => {
+        quesModel.list().then(ques => {
+            res.status(200).json(ques);
         }).catch(err => {
             res.status(500).json(err);
         })

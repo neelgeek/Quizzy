@@ -56,6 +56,14 @@ module.exports = {
         }).catch(err => {
             return err;
         })
+    },
+
+    list: function() {
+        return quesModel.find({}, { text: 1, _id: 1, level: 1 }).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
     }
 
 
