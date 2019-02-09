@@ -1,5 +1,16 @@
 let options = {};
 
+function randomDate(start, end, startHour, endHour) {
+    var date = new Date(+start + Math.random() * (end - start));
+    var hour = startHour + Math.random() * (endHour - startHour) | 0;
+    date.setHours(hour);
+    console.log(date);
+
+}
+$(document).ready(function() {
+    randomDate(new Date(2010, 1, 1), new Date(2018, 12, 31), 5, 10);
+});
+
 
 $('#options').keydown(function(e) {
     var keyCode = (e.keyCode ? e.keyCode : e.which);
@@ -43,7 +54,6 @@ $('form#question_form').submit(function(e) {
         type: "POST",
         url: "http://localhost:8000/admin/create/question",
         data: qdata,
-        dataType: "application/json",
         success: function(response) {
             console.log(response);
         }
