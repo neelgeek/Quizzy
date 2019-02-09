@@ -1,32 +1,3 @@
-function randomDate(start, end, startHour, endHour) {
-    var date = new Date(+start + Math.random() * (end - start));
-    var hour = startHour + Math.random() * (endHour - startHour) | 0;
-    date.setHours(hour);
-
-    return (date);
-
-}
-
-
-function deleteQues(id) {
-    console.log(id);
-    $.ajax({
-        type: "DELETE",
-        url: "http://localhost:8000/admin/delete/question/?id=" + id,
-        data: {},
-        success: function(response) {
-            // location.reload();
-            console.log(response);
-
-        }
-    });
-};
-
-function editQues(id) {
-    window.location = "addquestion.html?id=" + id;
-}
-
-
 $.ajax({
     type: "GET",
     url: "http://localhost:8000/view/questions",
@@ -53,6 +24,26 @@ $.ajax({
         console.log(i);
     }
 });
+
+
+function deleteQues(id) {
+    console.log(id);
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8000/admin/delete/question/?id=" + id,
+        data: {},
+        success: function(response) {
+            // location.reload();
+            console.log(response);
+
+        }
+    });
+};
+
+function editQues(id) {
+    window.location = "addquestion.html?id=" + id;
+}
+
 $(document).ready(function() {
     $("#table_body").find("#dataTables_empty").remove();
 });
