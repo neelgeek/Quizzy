@@ -1,20 +1,16 @@
 let options = {};
-
-function randomDate(start, end, startHour, endHour) {
-    var date = new Date(+start + Math.random() * (end - start));
-    var hour = startHour + Math.random() * (endHour - startHour) | 0;
-    date.setHours(hour);
-    console.log(date);
-
+var parsedUrl = new URL(window.location.href);
+var id = parsedUrl.searchParams.get("id");
+let is_edit = false;
+let method = "POST";
+if (id) {
+    is_edit = true
+    $("<div class=\"alert alert-info fade in\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>You are now editing question with id: " + id + ". Reenter Question details</div>").insertAfter("#form_panel");
 }
-$(document).ready(function() {
-    randomDate(new Date(2010, 1, 1), new Date(2018, 12, 31), 5, 10);
-});
-
 
 $('#options').keydown(function(e) {
     var keyCode = (e.keyCode ? e.keyCode : e.which);
-    if (keyCode == 13 || keyCode == 32) {
+    if (keyCode == 13 || keyCode == 32 || keyCode == 9) {
         e.preventDefault();
         var a = $("#options").find("span.tagit-label").each(function(index) {
             options[index] = $(this).text();
@@ -27,10 +23,14 @@ $('#options').keydown(function(e) {
 
 });
 
-
+$("#confirm").click(function(e) {
+    e.preventDefault();
+    console.log("Confirm Clicked");
+});
 
 $('form#question_form').submit(function(e) {
     e.preventDefault();
+    let api_url = "http://localhost:8000/admin/create/question";
 
     correct_options = {}
     $("#correct_option option:selected").each(function(indexInArray) {
@@ -49,13 +49,19 @@ $('form#question_form').submit(function(e) {
         correct: correct_options,
         level: Qdiff
     }
+    if (is_edit) {
+        api_url = "http://localhost:8000/admin/update/question";
+        qdata['_id'] = id;
+        method = "PATCH";
+    }
 
     $.ajax({
-        type: "POST",
-        url: "http://localhost:8000/admin/create/question",
+        type: method,
+        url: api_url,
         data: qdata,
         success: function(response) {
             console.log(response);
+            // location.reload();
         }
     });
 });

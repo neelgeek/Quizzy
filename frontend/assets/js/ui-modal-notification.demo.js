@@ -161,12 +161,12 @@ var handleSweetNotification = function() {
 
     $('[data-click="swal-danger"]').live('click', function() {
         swal({
-            title: "Are you sure?",
-            text: "You will not be able to recover this imaginary file!",
+            title: "Question Deleted",
+            text: "You can add it again from Add Questions page",
             type: "error",
-            showCancelButton: true,
+            showCancelButton: false,
             confirmButtonClass: 'btn-danger',
-            confirmButtonText: 'Danger!'
+            confirmButtonText: 'Ok!'
         });
     });
 };

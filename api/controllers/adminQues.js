@@ -31,7 +31,9 @@ module.exports.controllerFunction = function(app) {
     //Updates the question acc. to the details passed in the body.
     router.patch('/update/question', (req, res) => {
         quesModel.edit(req.body).then(updated => {
+            console.log("Question Updated");
             res.status(200).json(updated);
+
         }).catch(err => {
             res.status(500).json(err);
         })
