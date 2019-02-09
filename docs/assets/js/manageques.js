@@ -1,11 +1,13 @@
 $.ajax({
     type: "GET",
-    url: "http://localhost:8000/view/questions",
+    url: "https://app-quizzy.herokuapp.com/view/questions",
     data: {},
     success: function(response) {
-        let i = 0;
+
+        let i = 1;
         response.forEach(element => {
             i++;
+
             // console.log(element);
             if (i % 2 == 0) {
                 $("#table_body").append(
@@ -20,8 +22,8 @@ $.ajax({
 
         });
 
+        console.log($("#dataTables_empty").remove());
 
-        console.log(i);
     }
 });
 
@@ -30,7 +32,7 @@ function deleteQues(id) {
     console.log(id);
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8000/admin/delete/question/?id=" + id,
+        url: "https://app-quizzy.herokuapp.com/admin/delete/question/?id=" + id,
         data: {},
         success: function(response) {
             // location.reload();
@@ -45,5 +47,5 @@ function editQues(id) {
 }
 
 $(document).ready(function() {
-    $("#table_body").find("#dataTables_empty").remove();
+
 });

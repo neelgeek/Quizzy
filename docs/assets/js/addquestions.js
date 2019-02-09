@@ -30,7 +30,7 @@ $("#confirm").click(function(e) {
 
 $('form#question_form').submit(function(e) {
     e.preventDefault();
-    let api_url = "http://localhost:8000/admin/create/question";
+    let api_url = "https://app-quizzy.herokuapp.com/admin/create/question";
 
     correct_options = {}
     $("#correct_option option:selected").each(function(indexInArray) {
@@ -50,7 +50,7 @@ $('form#question_form').submit(function(e) {
         level: Qdiff
     }
     if (is_edit) {
-        api_url = "http://localhost:8000/admin/update/question";
+        api_url = "https://app-quizzy.herokuapp.com/admin/update/question";
         qdata['_id'] = id;
         method = "PATCH";
     }
