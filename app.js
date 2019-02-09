@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.set({
-        'Access-Control-Allow-Origin': 'http://localhost:8000'
+        'Access-Control-Allow-Origin': '*'
     })
     next();
 })
 app.use(require('cors')({
-    origin: 'http://localhost:8000',
+    origin: '*',
     credentials: true
 }));
 
