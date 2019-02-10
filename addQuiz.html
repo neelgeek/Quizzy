@@ -24,9 +24,13 @@
     <link href="assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
     <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     <link href="assets/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/plugins/DataTables/extensions/Select/css/select.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
     <!-- ================== END BASE CSS STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
+
     <script src="assets/plugins/pace/pace.min.js"></script>
     <link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.css" rel="stylesheet" />
     <link href="assets/plugins/ionRangeSlider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
@@ -201,7 +205,7 @@
             </ol>
             <!-- end breadcrumb -->
             <!-- begin page-header -->
-            <h1 class="page-header">Add Questions<small>Add your Questions to be used in the quiz here</small></h1>
+            <h1 class="page-header">Add Quiz<small>Create Quiz here</small></h1>
             <!-- end page-header -->
 
             <div class="row">
@@ -215,64 +219,54 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Question Form</h4>
+                            <h4 class="panel-title">Quiz Form</h4>
                         </div>
                         <div class="panel-body">
                             <form method="POST" id="question_form" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Enter Quiz Title</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="question_text" class="form-control" placeholder="Question" />
+                                        <input type="text" id="quiz_title" class="form-control" placeholder="Title" required/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">Select Question Type</label>
+                                    <label class="col-md-3 control-label">Enter Marks for Correct attempt</label>
                                     <div class="col-md-9">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="qtype" value="Single" checked />
-                                            Single
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="qtype" value="Multi" />
-                                            Multiple
-                                        </label>
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Enter Options(Only on for single Answer)</label>
-                                    <div id="options" class="col-md-9">
-                                        <ul id="jquery-tagIt-inverse" class="inverse">
-
-                                        </ul>
+                                        <input type="text" id="marks_correct" class="form-control" placeholder="Marks for Correct attempt" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">Select Correct Option Number(multiple for multiple answers)</label>
+                                    <label class="col-md-3 control-label">Enter Marks for InCorrect attempt</label>
                                     <div class="col-md-9">
-                                        <select id="correct_option" multiple class="form-control">
-												
-											</select>
+                                        <input type="text" id="marks_incorrect" class="form-control" placeholder="Marks for incorrect attempt" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">Select Question Difficulty</label>
+                                    <label class="col-md-3 control-label">Select Questions</label>
                                     <div class="col-md-9">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="diff" value="Easy" checked />
-                                            Easy
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="diff" value="Medium" />
-                                            Medium
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="diff" value="Hard" />
-                                            Hard
-                                        </label>
+                                        <table id="data_table" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Question</th>
+                                                    <th>Level</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table_body">
+
+                                            </tbody>
+
+                                        </table>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="button" onclick="return addQuestions()" class="btn btn-sm btn-success">Add Questions</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Submit</label>
@@ -392,13 +386,17 @@
     <!-- ================== END BASE JS ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-
+    <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js"></script>
+    <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/table-manage-select.demo.min.js"></script>
     <script src="assets/js/form-plugins.demo.js"></script>
-    <script src="assets/js/addquestions.js"></script>
     <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
     <script src="assets/plugins/bootstrap-sweetalert/sweetalert.js"></script>
     <script src="assets/js/ui-modal-notification.demo.js"></script>
     <script src="assets/js/apps.min.js"></script>
+    <script src="assets/js/addquiz.js"></script>
 
     <!-- ================== END PAGE LEVEL JS ================== -->
 
@@ -406,6 +404,7 @@
         $(document).ready(function() {
             App.init();
             FormPlugins.init();
+            TableManageTableSelect.init();
             Notification.init();
         });
     </script>

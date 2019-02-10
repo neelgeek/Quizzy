@@ -139,7 +139,7 @@ var handleSweetNotification = function() {
 
     $('[data-click="swal-success"]').live('click', function() {
         swal({
-            title: "Question Had Been Submitted",
+            title: "Question/Quiz Had Been Submitted",
             text: "You Can edit it from Manage Page",
             type: "success",
             showCancelButton: false,
@@ -161,7 +161,7 @@ var handleSweetNotification = function() {
 
     $('[data-click="swal-danger"]').live('click', function() {
         swal({
-            title: "Question Deleted",
+            title: "Question/Quiz Deleted",
             text: "You can add it again from Add Questions page",
             type: "error",
             showCancelButton: false,
