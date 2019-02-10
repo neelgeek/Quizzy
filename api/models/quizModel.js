@@ -32,6 +32,14 @@ module.exports = {
             return err;
         });
 
+    },
+    load: function(id) {
+        let qid = mongoose.Types.ObjectId(id);
+        return quizModel.find({ _id: qid }).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
     }
 
     // edit: function(data) {

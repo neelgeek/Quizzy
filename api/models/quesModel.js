@@ -13,20 +13,6 @@ module.exports = {
         });
     },
 
-    Randomview: function() {
-
-        // Returns the Questions in a Random manner
-        return quesModel.countDocuments().then(length => {
-            return quesModel.aggregate([{ $sample: { size: length } }]).then(response => {
-                return response;
-            }).catch(err => {
-                return err;
-            }).catch(err => {
-                return err;
-            })
-        });
-
-    },
 
     view: function(count = 0) {
 
@@ -64,7 +50,22 @@ module.exports = {
         }).catch(err => {
             return err;
         })
+    },
+    Randomview: function(ids) {
+        // Returns the Questions in a Random manner
+        return quesModel.find({ _id: { $in: ids } }).then(response => {
+            response.sort(function() {
+                return Math.round(Math.random()) - 0.5
+            });
+            return response;
+        }).catch(err => {
+            return err;
+        }).catch(err => {
+            return err;
+        });
+
     }
+
 
 
 
