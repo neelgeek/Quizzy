@@ -22,13 +22,21 @@ app.use(require('cors')({
 }));
 const dbName = "quizzy";
 
-
-mongoose.connect('mongodb://' + process.env.USER + ":" + process.env.PASS + "@ds127995.mlab.com:27995/" + dbName, { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/' + dbName)
     .then(function(params) {
         console.log("successfully connected to database!");
     }).catch(err => {
         console.log(err.errmsg);
     });
+
+
+
+// mongoose.connect('mongodb://' + process.env.USER + ":" + process.env.PASS + "@ds127995.mlab.com:27995/" + dbName, { useNewUrlParser: true })
+//     .then(function(params) {
+//         console.log("successfully connected to database!");
+//     }).catch(err => {
+//         console.log(err.errmsg);
+//     });
 
 
 //Including the Controllers and passing the Express object

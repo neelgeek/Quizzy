@@ -28,9 +28,9 @@ module.exports = {
 
     },
 
-    view: function() {
+    view: function(count = 11) {
 
-        return quesModel.find().then(response => {
+        return quesModel.find().limit(parseInt(count)).then(response => {
             return response;
         }).catch(err => {
             return err;
