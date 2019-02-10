@@ -27,7 +27,7 @@ $(document).ready(function() {
 });
 
 function editQuiz(id) {
-    console.log("Edit quiz " + id);
+    window.location = "addQuiz.html?id=" + id;;
 }
 
 
