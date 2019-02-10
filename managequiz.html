@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="https://img.icons8.com/color/48/000000/innovation.png" type="image/png">
-    <title>Quizzy Admin | Manage Questions</title>
+    <title>Quizzy Admin | Manage Quiz</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -180,7 +180,7 @@
                         </a>
                         <ul class="sub-menu">
                             <li><a href="adminpanel.html">Home</a></li>
-                            <li><a href="addquestion.html">Add Questions</a></li>
+                            <li><a href="addQuiz.html">Add Quiz</a></li>
                         </ul>
                     </li>
                     <!-- begin sidebar minify button -->
@@ -205,7 +205,7 @@
             </ol>
             <!-- end breadcrumb -->
             <!-- begin page-header -->
-            <h1 class="page-header">Manage Questions<small>Add or Edit your Questions from here</small></h1>
+            <h1 class="page-header">Manage Quiz<small>Delete or Edit your Quizes from here</small></h1>
             <!-- end page-header -->
 
             <!-- begin row -->
@@ -223,7 +223,7 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
-                            <h4 class="panel-title">Manage Questions</h4>
+                            <h4 class="panel-title">Manage Quiz</h4>
                         </div>
 
                         <div class="panel-body">
@@ -231,10 +231,8 @@
                                 <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th>Question</th>
-                                        <th>Options</th>
-                                        <th>Correct Option Number</th>
-                                        <th>Level</th>
+                                        <th>Title</th>
+                                        <th>Number of Questions</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -362,7 +360,7 @@
     <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
     <script src="assets/plugins/bootstrap-sweetalert/sweetalert.js"></script>
     <script src="assets/js/ui-modal-notification.demo.js"></script>
-    <script src="assets/js/manageques.js"></script>
+    <script src="assets/js/managequiz.js"></script>
     <script src="assets/js/apps.min.js"></script>
 
 
