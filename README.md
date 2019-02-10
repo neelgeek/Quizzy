@@ -1,5 +1,5 @@
 # Quizzy
-A Quiz App REST API Implementation in **node.js
+A Quiz App REST API Implementation in **node.js**
 The App is live at - https://quizzy-front.herokuapp.com/
 
 ![Admin Panel](https://github.com/neelgeek/Quizzy/blob/frontend/assets/img/panel.png)
@@ -7,28 +7,28 @@ The App is live at - https://quizzy-front.herokuapp.com/
 ![Question Panel](https://github.com/neelgeek/Quizzy/blob/frontend/assets/img/ques.png)
 
 The API is mainly divided into 2 parts -
-- **Admin Routes
-- **General Routes
+- **Admin Routes**
+- **General Routes**
 
 
 # Admin Routes 
 
-- **/admin/create/quiz :-
+- **/admin/create/quiz** :-
   This route is used by admin to save the Quiz in the Database. The Quiz details are submitted as POST request Body
   
- - **/admin/view/quiz :- 
+ - **/admin/view/quiz** :- 
   This route returns the quizzes saved in the db. This is a GET Route
  
- - **/admin/delete/quiz?=id :- 
+ - **/admin/delete/quiz?=id** :- 
   This Route is used to delete the Quiz who id is passed as the request query 'id'.
   
- - **/adming/update/quiz :- 
+ - **/adming/update/quiz** :- 
   This Route is used to update the Quiz.The details of the Quiz are send as the body of the POST request
   
-- **/admin/create/question :- 
+- **/admin/create/question** :- 
   This route is used by admin to save the question in the Database. The question details are submitted as POST request Body
   
- - **/admin/delete/question?=id :- 
+ - **/admin/delete/question?=id** :- 
   This Route is used to delete the question who id is passed as the request query 'id'.
   
  - **/adming/update/question** :-  
