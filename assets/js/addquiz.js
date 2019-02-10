@@ -74,8 +74,9 @@ $("#data_table").on('page.dt', function(e) {
     if (count > current_count) {
         current_count = count;
         loadTable(count);
+        dtable.page(info.page + 1).draw(true);
     }
-    console.log(count);
+    // console.log(count);
 
 });
 
@@ -83,7 +84,6 @@ $("#data_table").on('page.dt', function(e) {
 function addQuestions() {
     $('table > tbody > tr.selected > td.sorting_1').each(function(indexInArray) {
         ques[indexInArray] = $(this).text();
-
     });
     // console.log(ques);
     console.log("Questions Added");

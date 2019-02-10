@@ -58,7 +58,6 @@ $("#data_table").on('page.dt', function(e) {
     if (count > current_count) {
         current_count = count;
         loadTable(count);
+        dtable.page(info.page + 1).draw(true);
     }
-    console.log(count);
-
 });
