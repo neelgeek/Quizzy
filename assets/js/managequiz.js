@@ -1,9 +1,11 @@
 const table = $('#data_table').dataTable();
+// let url = "http://localhost:8000";
+let url = "https://app-quizzy.herokuapp.com"
 
 function loadTable() {
     $.ajax({
         type: "GET",
-        url: "https://app-quizzy.herokuapp.com/admin/view/quiz",
+        url: url + "/admin/view/quiz",
         data: {},
         success: function(response) {
             table.fnClearTable();
@@ -33,7 +35,7 @@ function deleteQuiz(id) {
     console.log("Delete quiz " + id);
     $.ajax({
         type: "DELETE",
-        url: "https://app-quizzy.herokuapp.com/admin/delete/quiz/?id=" + id,
+        url: url + "/admin/delete/quiz/?id=" + id,
         success: function(response) {
             console.log(response);
 

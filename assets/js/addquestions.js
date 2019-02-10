@@ -1,4 +1,6 @@
 let options = {};
+// let url = "http://localhost:8000";
+let url = "https://app-quizzy.herokuapp.com"
 var parsedUrl = new URL(window.location.href);
 var id = parsedUrl.searchParams.get("id");
 let is_edit = false;
@@ -30,7 +32,7 @@ $("#confirm").click(function(e) {
 
 $('form#question_form').submit(function(e) {
     e.preventDefault();
-    let api_url = "https://app-quizzy.herokuapp.com/admin/create/question";
+    let api_url = url + "/admin/create/question";
 
     correct_options = {}
     $("#correct_option option:selected").each(function(indexInArray) {
@@ -50,7 +52,7 @@ $('form#question_form').submit(function(e) {
         level: Qdiff
     }
     if (is_edit) {
-        api_url = "https://app-quizzy.herokuapp.com/admin/update/question";
+        api_url = url + "/admin/update/question";
         qdata['_id'] = id;
         method = "PATCH";
     }

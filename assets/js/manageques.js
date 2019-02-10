@@ -1,6 +1,8 @@
 const table = $('#data_table').dataTable();
 const dtable = $('#data_table').DataTable();
 var current_count = 11;
+// let url = "http://localhost:8000";
+let url = "https://app-quizzy.herokuapp.com"
 $(document).ready(function() {
     loadTable(11);
 });
@@ -9,7 +11,7 @@ function deleteQues(id) {
     console.log(id);
     $.ajax({
         type: "DELETE",
-        url: "https://app-quizzy.herokuapp.com/admin/delete/question/?id=" + id,
+        url: url + "/admin/delete/question/?id=" + id,
         data: {},
         success: function(response) {
             // location.reload();
@@ -24,7 +26,7 @@ function deleteQues(id) {
 function loadTable(count = 11) {
     $.ajax({
         type: "GET",
-        url: "https://app-quizzy.herokuapp.com/view/questions?count=" + count,
+        url: url + "/view/questions?count=" + count,
         data: {},
         success: function(response) {
             table.fnClearTable();

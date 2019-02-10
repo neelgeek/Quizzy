@@ -1,5 +1,6 @@
 let ques = {};
-
+// let url = "http://localhost:8000";
+let url = "https://app-quizzy.herokuapp.com"
 const table = $('#data_table').dataTable({
     select: true
 });
@@ -28,7 +29,7 @@ $('form#question_form').submit(function(e) {
 
     $.ajax({
         type: "POST",
-        url: "https://app-quizzy.herokuapp.com/admin/create/quiz",
+        url: url + "/admin/create/quiz",
         data: qdata,
         success: function(response) {
             console.log(qdata)
@@ -43,7 +44,7 @@ $('form#question_form').submit(function(e) {
 function loadTable(count = 11) {
     $.ajax({
         type: "GET",
-        url: "https://app-quizzy.herokuapp.com/view/questions?count=" + count,
+        url: url + "/view/questions?count=" + count,
         data: {},
         success: function(response) {
             table.fnClearTable();
