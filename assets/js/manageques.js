@@ -1,7 +1,7 @@
 const table = $('#data_table').dataTable();
 const dtable = $('#data_table').DataTable();
 var current_count = 11;
-// let url = "http://localhost:8000";
+// let url = "http://localhost:8000"; //For Testings
 let url = "https://app-quizzy.herokuapp.com"
 $(document).ready(function() {
     loadTable(11);

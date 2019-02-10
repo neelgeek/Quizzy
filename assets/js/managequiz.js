@@ -1,5 +1,5 @@
 const table = $('#data_table').dataTable();
-// let url = "http://localhost:8000";
+// let url = "http://localhost:8000"; //For Testings
 let url = "https://app-quizzy.herokuapp.com"
 
 function loadTable() {

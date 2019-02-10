@@ -1,5 +1,5 @@
 let options = {};
-// let url = "http://localhost:8000";
+// let url = "http://localhost:8000"; //For Testings
 let url = "https://app-quizzy.herokuapp.com"
 var parsedUrl = new URL(window.location.href);
 var id = parsedUrl.searchParams.get("id");

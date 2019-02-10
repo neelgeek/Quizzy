@@ -1,11 +1,22 @@
 let ques = {};
-// let url = "http://localhost:8000";
+// let url = "http://localhost:8000"; //For Testings
 let url = "https://app-quizzy.herokuapp.com"
 const table = $('#data_table').dataTable({
     select: true
 });
 const dtable = $('#data_table').DataTable();
 var current_count = 11;
+var parsedUrl = new URL(window.location.href);
+var id = parsedUrl.searchParams.get("id");
+let is_edit = false;
+let method = "POST";
+if (id) {
+    is_edit = true
+    $("<div class=\"alert alert-info fade in\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>You are now editing Quiz with id: " + id + ". Reenter Quiz details</div>").insertAfter("#form_panel");
+}
+
+
+
 $(document).ready(function() {
     loadTable(11);
 });
@@ -26,13 +37,17 @@ $('form#question_form').submit(function(e) {
         marks: qmarks,
         questions: ques
     }
-
+    if (is_edit) {
+        api_url = url + "/admin/update/quiz";
+        qdata['_id'] = id;
+        method = "PATCH";
+    }
     $.ajax({
-        type: "POST",
-        url: url + "/admin/create/quiz",
+        type: method,
+        url: api_url,
         data: qdata,
         success: function(response) {
-            console.log(qdata)
+            console.log(response)
         }
     });
 
