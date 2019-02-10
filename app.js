@@ -22,7 +22,7 @@ app.use(require('cors')({
 }));
 const dbName = "quizzy";
 
-// mongoose.connect('mongodb://localhost/' + dbName)
+// mongoose.connect('mongodb://localhost/' + dbName) //For Testings
 //     .then(function(params) {
 //         console.log("successfully connected to database!");
 //     }).catch(err => {

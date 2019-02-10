@@ -32,5 +32,14 @@ module.exports.controllerFunction = function(app) {
         })
     });
 
+    router.patch('/update/quiz', (req, res) => {
+        quizModel.edit(req.body).then(response => {
+            console.log("Quiz Updated");
+            res.status(200).json(response);
+        }).catch(err => {
+            res.status(500).json(err);
+        })
+    });
+
     app.use('/admin', router);
 }

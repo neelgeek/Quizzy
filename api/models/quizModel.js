@@ -40,17 +40,19 @@ module.exports = {
         }).catch(err => {
             return err;
         })
-    }
+    },
 
-    // edit: function(data) {
-    //     let id = data._id;
-    //     delete data.id;
-    //     return quizModel.updateOne({ '_id': id }, { $set: data }).then(res => {
-    //         return res;
-    //     }).catch(err => {
-    //         return err;
-    //     })
-    // }
+    edit: function(data) {
+        let id = data._id;
+        delete data.id;
+        console.log(data);
+
+        return quizModel.updateOne({ '_id': id }, { $set: data }).then(res => {
+            return res;
+        }).catch(err => {
+            return err;
+        })
+    }
 
 
 
