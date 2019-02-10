@@ -2,9 +2,12 @@
 A Quiz App REST API Implementation in node.js
 The App is live at - https://quizzy-front.herokuapp.com/
 
+![Admin Panel](https://github.com/neelgeek/Quizzy/blob/frontend/assets/img/panel.png)
+
 The API is mainly divided into 2 parts -
 - Admin Routes
 - General Routes
+
 
 # Admin Routes 
 
