@@ -5,7 +5,7 @@ const quesModel = require('../models/quesModel');
 module.exports.controllerFunction = function(app) {
 
     // Returns Random Questions from the database in random manner
-    router.get('/load/questions', (req, res) => {
+    router.post('/load/questions', (req, res) => {
         quesModel.Randomview(req.body.questions).then(response => {
             res.status(200).json(response);
         }).catch(err => {
