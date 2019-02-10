@@ -28,7 +28,7 @@ module.exports = {
 
     },
 
-    view: function(count = 11) {
+    view: function(count = 0) {
 
         return quesModel.find().limit(parseInt(count)).then(response => {
             return response;
