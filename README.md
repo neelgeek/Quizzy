@@ -49,6 +49,8 @@ The API is mainly divided into 2 parts -
 - Caching to be implmented using **Graphql** to increase speed and optimise server performance.
 - More Routes for quiz assesment and score report
 
+# Frontend
+- **The Frontend code can be found in the [Frontend Branch](https://github.com/neelgeek/Quizzy/tree/frontend) **
 
 **Visit www.neelbhave.me to view my Portfolio**
 
