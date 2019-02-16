@@ -1,6 +1,7 @@
 let ques = {};
 // let url = "http://localhost:8000"; //For Testings
 let url = "https://app-quizzy.herokuapp.com"
+
 const table = $('#data_table').dataTable({
     select: true
 });
@@ -25,7 +26,8 @@ $(document).ready(function() {
 
 $('form#question_form').submit(function(e) {
     e.preventDefault();
-    console.log("Form Submitted");
+    api_url = url + "/admin/create/quiz"
+
     let qtitle = $('#quiz_title').val();
     let qmarks = {
         correct: $('#marks_correct').val(),
